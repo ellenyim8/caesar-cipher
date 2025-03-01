@@ -28,13 +28,28 @@ def encryption(txt, val):
     d = dict(zip(alphabetTable, shiftAlphabet))
     #for i, j in d.items():
     #    print(f" {i} : {j} ")
-
     #print(type(txt)) 
     for word in txt.split(" "):
         for letter in word:
             encrypt += d[letter]
     print(encrypt) 
-    return encrypt 
+    # return encrypt 
+
+    # decrypt it back:
+    decrypt = decryption(encrypt, shift, shiftAlphabet) 
+    print(decrypt)
+
+
+def decryption(encryption, value, shiftedAlpha):
+    print(encryption)
+    table = dict(zip(shiftedAlpha, alphabetTable))
+
+    decrypt = ""
+    for letter in encryption:
+        decrypt += table[letter]
+
+    return decrypt 
+
 
 
 
@@ -44,4 +59,4 @@ def shiftValue(value):
 
 
 if __name__ == "__main__":
-    encrypt_example()
+    e = encrypt_example()
